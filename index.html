@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BusinessPro | Professional Business Website</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: #f8f9fc;
+      color: #222;
+      line-height: 1.6;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .header {
+      background: #0f172a;
+      color: #fff;
+      padding: 18px 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .nav-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    .logo span {
+      color: #38bdf8;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #38bdf8;
+    }
+
+    .btn {
+      display: inline-block;
+      background: #38bdf8;
+      color: #fff;
+      padding: 12px 24px;
+      text-decoration: none;
+      border-radius: 6px;
+      transition: 0.3s;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .btn:hover {
+      background: #0ea5e9;
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 2px solid #38bdf8;
+      color: #38bdf8;
+    }
+
+    .btn-outline:hover {
+      background: #38bdf8;
+      color: #fff;
+    }
+
+    .hero {
+      padding: 80px 0;
+      background: linear-gradient(to right, #e0f2fe, #f8fafc);
+    }
+
+    .hero-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .hero-text h1 {
+      font-size: 48px;
+      margin-bottom: 20px;
+      color: #0f172a;
+    }
+
+    .hero-text p {
+      font-size: 18px;
+      margin-bottom: 25px;
+      color: #475569;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .hero-image img,
+    .about-image img {
+      width: 100%;
+      border-radius: 12px;
+    }
+
+    .section {
+      padding: 80px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .section-title h2 {
+      font-size: 36px;
+      color: #0f172a;
+      margin-bottom: 10px;
+    }
+
+    .section-title p {
+      color: #64748b;
+      font-size: 17px;
+    }
+
+    .about-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .about-text h3 {
+      font-size: 30px;
+      margin-bottom: 20px;
+      color: #0f172a;
+    }
+
+    .about-text p {
+      margin-bottom: 15px;
+      color: #475569;
+    }
+
+    .services {
+      background: #ffffff;
+    }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .service-card {
+      background: #f8fafc;
+      padding: 30px 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+      transition: 0.3s;
+    }
+
+    .service-card:hover {
+      transform: translateY(-8px);
+    }
+
+    .service-card h3 {
+      margin-bottom: 15px;
+      color: #0f172a;
+    }
+
+    .service-card p {
+      color: #64748b;
+    }
+
+    .why {
+      background: #eaf6ff;
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .why-card {
+      background: #fff;
+      padding: 25px;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    }
+
+    .why-card h3 {
+      margin-bottom: 12px;
+      color: #0f172a;
+    }
+
+    .why-card p {
+      color: #64748b;
+    }
+
+    .contact-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: start;
+    }
+
+    .contact-info h3 {
+      margin-bottom: 20px;
+      color: #0f172a;
+    }
+
+    .contact-info p {
+      margin-bottom: 12px;
+      color: #475569;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 14px;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      outline: none;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      border-color: #38bdf8;
+    }
+
+    .footer {
+      background: #0f172a;
+      color: #fff;
+      text-align: center;
+      padding: 20px 0;
+      margin-top: 30px;
+    }
+
+    @media (max-width: 992px) {
+      .hero-content,
+      .about-content,
+      .contact-wrapper,
+      .service-grid,
+      .why-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .hero-text h1 {
+        font-size: 38px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-container {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .nav-links {
+        justify-content: center;
+      }
+
+      .hero-content,
+      .about-content,
+      .contact-wrapper,
+      .service-grid,
+      .why-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-text h1 {
+        font-size: 32px;
+      }
+
+      .section-title h2 {
+        font-size: 28px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container nav-container">
+      <div class="logo">Business<span>Pro</span></div>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <a href="#contact" class="btn">Get Started</a>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="container hero-content">
+      <div class="hero-text">
+        <h1>Grow Your Business With Confidence</h1>
+        <p>
+          We provide smart business solutions to help your company grow faster,
+          build trust, and achieve long-term success.
+        </p>
+        <div class="hero-buttons">
+          <a href="#services" class="btn">Our Services</a>
+          <a href="#contact" class="btn btn-outline">Contact Us</a>
+        </div>
+      </div>
+      <div class="hero-image">
+        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=900&q=80" alt="Business Team">
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="about section" id="about">
+    <div class="container">
+      <div class="section-title">
+        <h2>About Us</h2>
+        <p>We are committed to delivering professional business services with quality and trust.</p>
+      </div>
+
+      <div class="about-content">
+        <div class="about-text">
+          <h3>Your Trusted Business Partner</h3>
+          <p>
+            Our company helps startups, small businesses, and enterprises create
+            strong strategies for growth. We focus on innovation, customer satisfaction,
+            and measurable results.
+          </p>
+          <p>
+            From digital solutions to business consulting, we offer modern services
+            that empower your business in today’s competitive market.
+          </p>
+        </div>
+        <div class="about-image">
+          <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=900&q=80" alt="About Business">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section class="services section" id="services">
+    <div class="container">
+      <div class="section-title">
+        <h2>Our Services</h2>
+        <p>We offer high-quality services tailored to your business needs.</p>
+      </div>
+
+      <div class="service-grid">
+        <div class="service-card">
+          <h3>Business Consulting</h3>
+          <p>Strategic planning and expert consulting to improve your business performance.</p>
+        </div>
+        <div class="service-card">
+          <h3>Digital Marketing</h3>
+          <p>Boost your online presence through SEO, social media, and digital campaigns.</p>
+        </div>
+        <div class="service-card">
+          <h3>Web Development</h3>
+          <p>Professional and responsive websites designed to represent your brand.</p>
+        </div>
+        <div class="service-card">
+          <h3>Brand Strategy</h3>
+          <p>Create a strong, memorable brand identity that connects with your audience.</p>
+        </div>
+        <div class="service-card">
+          <h3>Market Analysis</h3>
+          <p>Understand your customers and competition with data-driven market insights.</p>
+        </div>
+        <div class="service-card">
+          <h3>Customer Support</h3>
+          <p>Reliable support solutions to improve customer satisfaction and loyalty.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Us -->
+  <section class="why section">
+    <div class="container">
+      <div class="section-title">
+        <h2>Why Choose Us</h2>
+        <p>We focus on professionalism, performance, and long-term success.</p>
+      </div>
+
+      <div class="why-grid">
+        <div class="why-card">
+          <h3>Experienced Team</h3>
+          <p>Our skilled professionals bring years of business and technology expertise.</p>
+        </div>
+        <div class="why-card">
+          <h3>Client-Focused</h3>
+          <p>We listen to your goals and create solutions that fit your exact needs.</p>
+        </div>
+        <div class="why-card">
+          <h3>Result-Oriented</h3>
+          <p>We aim for measurable growth, better conversion, and business success.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact section" id="contact">
+    <div class="container">
+      <div class="section-title">
+        <h2>Contact Us</h2>
+        <p>Let’s discuss how we can help grow your business.</p>
+      </div>
+
+      <div class="contact-wrapper">
+        <div class="contact-info">
+          <h3>Get In Touch</h3>
+          <p><strong>Email:</strong> info@businesspro.com</p>
+          <p><strong>Phone:</strong> +880 1234-567890</p>
+          <p><strong>Address:</strong> Dhaka, Bangladesh</p>
+        </div>
+
+        <form class="contact-form" onsubmit="showMessage(event)">
+          <input type="text" placeholder="Your Name" required>
+          <input type="email" placeholder="Your Email" required>
+          <input type="text" placeholder="Subject" required>
+          <textarea rows="5" placeholder="Your Message" required></textarea>
+          <button type="submit" class="btn">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 BusinessPro. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    function showMessage(event) {
+      event.preventDefault();
+      alert("Thank you! Your message has been sent successfully.");
+      event.target.reset();
+    }
+  </script>
+</body>
+</html>
